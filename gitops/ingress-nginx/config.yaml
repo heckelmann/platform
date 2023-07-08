@@ -1,0 +1,4 @@
+repoURL: https://github.com/heckelmann/platform.git
+targetRevision: HEAD
+targetPath: "gitops-services/ingress-nginx"
+namespace: "ingress-nginx"
