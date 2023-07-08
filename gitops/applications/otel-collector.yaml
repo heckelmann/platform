@@ -2,16 +2,16 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   annotations:
-    argocd.argoproj.io/sync-wave: "0"
-  name: cert-manager
+    argocd.argoproj.io/sync-wave: "3"
+  name: keptn-lifecycle-toolkit-system
   namespace: argocd
 spec:
   source:
     repoURL: 'https://github.com/heckelmann/platform.git'
     targetRevision: main
-    path: "gitops/manifests/cert-manager"
+    path: "gitops/manifests/otel-collector"
   destination:
-    namespace: cert-manager
+    namespace: keptn-lifecycle-toolkit-system
     server: 'https://kubernetes.default.svc'
   project: default
   syncPolicy:

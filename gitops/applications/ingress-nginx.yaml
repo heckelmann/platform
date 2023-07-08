@@ -3,15 +3,15 @@ kind: Application
 metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "0"
-  name: cert-manager
+  name: ingress-nginx
   namespace: argocd
 spec:
   source:
     repoURL: 'https://github.com/heckelmann/platform.git'
     targetRevision: main
-    path: "gitops/manifests/cert-manager"
+    path: "gitops/manifests/ingress-nginx"
   destination:
-    namespace: cert-manager
+    namespace: ingress-nginx
     server: 'https://kubernetes.default.svc'
   project: default
   syncPolicy:
