@@ -1,0 +1,4 @@
+repoURL: https://github.com/heckelmann/platform.git
+targetRevision: main
+targetPath: "gitops/manifests/cert-manager"
+namespace: "cert-manager"
