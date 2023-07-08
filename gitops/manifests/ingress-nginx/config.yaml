@@ -2,3 +2,4 @@ repoURL: https://github.com/heckelmann/platform.git
 targetRevision: main
 targetPath: "gitops/manifests/ingress-nginx"
 namespace: "ingress-nginx"
+syncWave: 2
