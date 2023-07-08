@@ -11,10 +11,10 @@ spec:
         files:
           - path: gitops/manifests/**/config.yaml
   template:
-    metadata:
-      name: '{{path.basename}}'
     annotations:
       argocd.argoproj.io/sync-wave: '{{ syncWave }}'
+    metadata:
+      name: '{{path.basename}}'
     spec:
       project: default
       sources:
