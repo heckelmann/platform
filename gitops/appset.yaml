@@ -8,7 +8,7 @@ spec:
         repoURL: https://github.com/heckelmann/platform.git
         revision: HEAD
         files:
-          - path: gitops/**/config.yaml
+          - path: gitops/helm/**/config.yaml
   template:
     metadata:
       name: '{{path.basename}}'
@@ -20,10 +20,10 @@ spec:
         chart: '{{ chart }}'
         helm:
           valueFiles:
-          - $values/gitops/{{ path.basename }}/values.yaml
+          - $values/gitops/helm/{{ path.basename }}/values.yaml
       - repoURL: '{{ repoURL }}'
         targetRevision: HEAD
-        path: gitops/{{ path.basename }}
+        path: gitops/helm/{{ path.basename }}
       - repoURL: '{{ repoURL }}'
         targetRevision: HEAD
         ref: values
