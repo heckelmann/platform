@@ -20,13 +20,7 @@ spec:
         chart: '{{ chart }}'
         helm:
           valueFiles:
-          - $values/gitops/helm/{{ path.basename }}/values.yaml
-      - repoURL: '{{ repoURL }}'
-        targetRevision: HEAD
-        path: gitops/helm/{{ path.basename }}
-      - repoURL: '{{ repoURL }}'
-        targetRevision: HEAD
-        ref: values
+          - gitops/helm/{{ path.basename }}/values.yaml
       destination:
         server: https://kubernetes.default.svc
         namespace: '{{ namespace }}'
