@@ -1,0 +1,37 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: platform
+spec:
+  generators:
+    - git:
+        repoURL: https://github.com/heckelmann/platform.git
+        revision: HEAD
+        files:
+          - path: gitops/**/config.yaml
+  template:
+    metadata:
+      name: '{{path.basename}}'
+    spec:
+      project: default
+      sources:
+      - repoURL: '{{ repoURL }}'
+        targetRevision: '{{ targetRevision }}'
+        chart: '{{ chart }}'
+        helm:
+          valueFiles:
+          - $values/gitops/{{ path.basename }}/values.yaml
+      - repoURL: '{{ repoURL }}'
+        targetRevision: HEAD
+        path: gitops/{{ path.basename }}
+      - repoURL: '{{ repoURL }}'
+        targetRevision: HEAD
+        ref: values
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: '{{ namespace }}'
+      syncPolicy:
+        automated: {}
+        syncOptions:
+          - CreateNamespace=true
+
