@@ -1,4 +1,4 @@
 repoURL: https://github.com/heckelmann/platform.git
 targetRevision: main
-targetPath: "gitops/helm/otel-collector"
+targetPath: "gitops/mainifests/otel-collector"
 namespace: "keptn-lifecycle-toolkit-system"
