@@ -15,7 +15,7 @@ spec:
     server: 'https://kubernetes.default.svc'
   project: default
   ignoreDifferences:
-  - group: "rbac"
+  - group: "rbac.authorization.k8s.io"
     kind: "ClusterRoleBinding"
     jsonPointers:
     - /subjects  
