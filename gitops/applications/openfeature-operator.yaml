@@ -7,9 +7,9 @@ metadata:
   namespace: argocd
 spec:
   source:
-    repoURL: 'https://open-feature.github.io/open-feature-operator'
-    targetRevision: v0.2.34
-    chart: open-feature-operator
+    repoURL: 'https://github.com/heckelmann/platform.git'
+    targetRevision: main
+    path: "gitops/manifests/openfeature-operator"
   destination:
     namespace: open-feature-operator-system
     server: 'https://kubernetes.default.svc'
